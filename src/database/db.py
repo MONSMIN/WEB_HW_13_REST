@@ -34,5 +34,12 @@ sessionmanager = DatabaseSessionManager(config.DB_URL)
 
 
 async def get_db() -> AsyncIterator[AsyncSession]:
+    """
+The get_db function is a context manager that returns an async session.
+The session can be used to query the database and add/remove objects from it.
+
+
+:return: A context manager that returns a session
+"""
     async with sessionmanager.session() as session:
         yield session
